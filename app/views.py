@@ -3,7 +3,7 @@ from django.views.generic.list import ListView
 from django.contrib.auth import get_user_model
 from django.shortcuts import render
 
-def add_film(request):
+def create_contact(request):
     name = request.POST.get('contactname')
     phone_number = request.POST.get('phone_number')
     
@@ -14,8 +14,8 @@ def add_film(request):
     request.contacts.add(contact)
 
     # return template fragment with all the user's films
-    films = request.user.films.all()
-    return render(request, 'partials/film-list.html', {'films': films})
+    contacts = request.films.all()
+    return render(request, 'contact-list.html', {'contacts': contacts})
 
 class FilmList(ListView):
     template_name = 'contact.html'
