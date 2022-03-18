@@ -11,7 +11,7 @@ def add_film(request):
     contact = Contact.objects.create(name=name, phone_number=phone_number)
     
     # add the contact to the contact list
-    request.user.contacts.add(contact)
+    request.contacts.add(contact)
 
     # return template fragment with all the user's films
     films = request.user.films.all()
