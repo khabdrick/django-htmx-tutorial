@@ -1,6 +1,7 @@
 from .models import Contact
 from django.views.generic.list import ListView
 from django.contrib.auth import get_user_model
+from django.shortcuts import render
 
 def add_film(request):
     name = request.POST.get('contactname')
