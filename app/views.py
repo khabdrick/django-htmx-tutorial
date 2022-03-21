@@ -1,7 +1,11 @@
 from .models import Contact
 from django.views.generic.list import ListView
-from django.contrib.auth import get_user_model
+from django.views.generic import TemplateView
 from django.shortcuts import render
+
+
+class IndexView(TemplateView):
+    template_name = 'index.html'
 
 def create_contact(request):
     name = request.POST.get('contactname')
