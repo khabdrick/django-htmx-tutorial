@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app.views import ContactList, create_contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('create-contact/', create_contact, name='create-contact'),
 ]
