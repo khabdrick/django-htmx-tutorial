@@ -17,7 +17,7 @@ def create_contact(request):
     contacts = request.films.all()
     return render(request, 'contact-list.html', {'contacts': contacts})
 
-class FilmList(ListView):
+class ContactList(ListView):
     template_name = 'contact.html'
     model = Contact
     context_object_name = 'contacts'
