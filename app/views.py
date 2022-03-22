@@ -16,3 +16,12 @@ class ContactList(ListView):
     template_name = 'contact.html'
     model = Contact
     context_object_name = 'contacts'
+
+def delete_contact(request, pk):
+    # remove the contact from list.
+    contact_id = Contact.objects.get(id=pk)
+    if request.method == 'POST':
+        contact_id.delete()
+    # return template fragment with all the user's films
+    contacts = Contact.objects.all()
+    return render(request, 'contact-list.html', {'contacts': contacts})
