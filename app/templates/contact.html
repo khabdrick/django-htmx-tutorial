@@ -5,12 +5,12 @@
 <div class="align-center col-10 offset-1">
     <div class="d-flex justify-content-between align-items-center">
         <p class="lead ml-0">My contacts</p>
-        <form hx-post="{% url 'create-contact' %}" hx-target='#contact-list' class="d-flex align-items-center">
+        <form hx-post="{% url 'create-contact' %}" hx-target='#contact-list' class="d-flex align-items-center" method="POST">
             {% csrf_token %}
             <input type="text" name="contactname" class="form-control-sm mr-2" placeholder="Enter name" />
             <input type="text" name="phone_number" class="form-control-sm mr-2" placeholder="Enter phone number" />
 
-            <button type="submit" class="btn btn-success btn-sm">Save</button>
+            <button hx-post='{% url "create-contact"%}' hx-target='#contact-list' type="submit" class="btn btn-success btn-sm">Save</button>
         </form>
     </div>
     <hr/>
