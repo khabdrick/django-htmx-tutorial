@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Contact
 from django.views.generic.list import ListView
@@ -24,3 +25,11 @@ def delete_contact(request, pk):
     # return template fragment with all the user's films
     contacts = Contact.objects.all()
     return render(request, 'contact-list.html', {'contacts': contacts})
+
+def check_name(request):
+    name = request.POST.get('contactname')
+    if Contact.objects.filter(name=name).exists():
+        print (name)
+        return HttpResponse("<div style='color: red;'>This name already exist</div>")
+    else:
+        return HttpResponse("<div style='color: green;'>This name does not exist</div>")
