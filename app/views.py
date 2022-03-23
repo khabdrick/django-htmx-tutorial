@@ -22,7 +22,6 @@ def delete_contact(request, pk):
     # remove the contact from list.
     contact_id = Contact.objects.get(id=pk)
     contact_id.delete()
-    # return template fragment with all the user's films
     contacts = Contact.objects.all()
     return render(request, 'contact-list.html', {'contacts': contacts})
 
